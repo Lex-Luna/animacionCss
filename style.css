@@ -1,0 +1,163 @@
+body {
+    display: grid;
+    /* justify-content: center; */
+    /*  */
+    place-content: center;
+    margin: 0;
+    height: 1000rem;
+}
+
+header {
+    position: fixed;
+    background-color: red;
+    /* width: 100%; */
+    height: 1em;
+    animation: progers-grow auto linear;
+    animation-timeline: scroll(root block);
+}
+
+@keyframes progers-grow {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes enhance-header {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: .4;
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        opacity: .4;
+    }
+}
+
+@keyframes enhance-header {
+    from {}
+    to {
+        background-color: rgba(197, 191, 191, 0.4);
+        backdrop-filter: blur(5px);
+    }
+}
+
+.boton {
+    /* margin-top: 5rem; */
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    border-radius: 100%;
+    transition-duration: 2s;
+    transition-property: all;
+    transition-timing-function: ease;
+    opacity: 0;
+    /* transition-timing-function: steps(3); */
+    /* transition-timing-function: cubic-bezier(0.82, 1.17, 0, 1.15); */
+    /* transition-delay: 2s; */
+    /* transition-delay: ; */
+    transition: background 300 linear 3s scale(1.4);
+    &:hover {
+        margin-top: 0;
+        background-color: black;
+        box-shadow: 0 0 50px red;
+        scale: 2;
+        opacity: 1;
+    }
+}
+
+section {
+    display: flex;
+    gap: 16px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-color: red;
+    &:hover .boton {
+        opacity: 1;
+    }
+}
+
+.boton:first-child {
+    transition-delay: 0s;
+}
+
+.boton:nth-child(2) {
+    transition-delay: 1s;
+    background-color: black;
+    box-shadow: 0 0 50px red;
+    scale: 2;
+}
+
+.boton:nth-child(3) {
+    transition-delay: 2s;
+    background-color: black;
+    box-shadow: 0 0 50px red;
+    scale: 2;
+}
+
+.aparte {
+    /* animation: moviemientos; */
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    /* &:hover {} */
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: yellow;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        background-color: rgb(31, 21, 96);
+        z-index: -1;
+        scale: 1.3;
+        opacity: .3;
+        animation-name: pulser;
+        animation-duration: 3s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes pulser {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        scale: .3;
+        opacity: 0.1;
+    }
+}
+
+.pelota {
+    margin-top: 10%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    animation: moviemientos 3s steps(5) both;
+    /* animation-iteration-count: calc(1);
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards; */
+    /* hace que se quede la animacion donde termino */
+}
+
+@keyframes moviemientos {
+    from {
+        transform: translateX(0PX);
+        opacity: .3;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(400PX);
+    }
+}
